@@ -34,8 +34,7 @@ $(function() {
         // console.log(event);
         event.preventDefault();
         var newBurger = {
-            burger_name: $("#burger-name").val().trim(),
-            devoured: false
+            burger_name: $("#burger-name").val().trim()
         };
 
         $.ajax("/api/burgers/",{
@@ -43,7 +42,7 @@ $(function() {
             data: newBurger
         }).then(
             function(){
-                console.log("Deleted devoured : ", id);
+                console.log("New burger created ");
                 // Reload the page to get the updated list
                 location.reload();
             })
