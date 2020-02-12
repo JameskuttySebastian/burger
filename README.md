@@ -15,4 +15,6 @@
 
 -  Heroku
 > https://pacific-harbor-11291.herokuapp.com/
+-  Portfolio page
+>https://jameskuttysebastian.github.io/ASSIGNMENT8_UpdatedPortfolioPage/portfolio.html
 
