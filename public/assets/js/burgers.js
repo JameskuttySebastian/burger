@@ -19,26 +19,28 @@ $(function() {
     });
 
     $(".remove-devoured").on("click", function(event){
-        var id = $this.data("id");
-        $ajax.delete("/api/burgers/" + id ,{
-            type: DELETE
+        var id = $(this).data("id");
+        $.ajax("/api/burgers/" + id ,{
+            type: "DELETE"
         }).then(
             function(){
                 console.log("Deleted devoured : ", id);
                 // Reload the page to get the updated list
                 location.reload();
             })
-    })
+    });
 
-    $(".burger").on("submit", function(event){
+    $(".burger-form").on("submit", function(event){
+        // console.log(event);
         event.preventDefault();
         var newBurger = {
-            burger_name: $("#burger-name"),
+            burger_name: $("#burger-name").val().trim(),
             devoured: false
         };
-        var id = $this.data("id");
-        $ajax.delete("/api/burgers/" + id ,{
-            type: DELETE
+
+        $.ajax("/api/burgers/",{
+            type: "POST",
+            data: newBurger
         }).then(
             function(){
                 console.log("Deleted devoured : ", id);
