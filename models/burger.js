@@ -12,7 +12,12 @@ const burger = {
         })
     },
     updateOne: function(objColumnsAndValuess, condition, callback){
-        orm.insertOne("burgers", objColumnsAndValuess, condition, function(response){
+        orm.updateOne("burgers", objColumnsAndValuess, condition, function(response){
+            callback(response);
+        })
+    },
+    deleteOne: function(condition, callback){
+        orm.deleteOne("burgers",  condition, function(response){
             callback(response);
         })
     }

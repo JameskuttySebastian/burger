@@ -1,13 +1,14 @@
 <div class="container">
     <nav class="navbar titlebar">
-        <h1>The Burger House</h1>
+        <h1>The Burger Logger
+        </h1>
     </nav>
     <div class="row">
-<!--        This div is for entering new bergers-->
+<!--        This div is for entering new burgers-->
         <div class="col-md-4 ">
             {{#each burgers}}
-                {{#unless eaten}}
-                    {{> burgers/burger-block eaten=false}}
+                {{#unless devoured}}
+                    {{> burgers/burger-block devoured=false}}
                 {{/unless}}
             {{/each}}
         </div>
@@ -28,9 +29,9 @@
 <!--        This div is for entering eaten burgers-->
         <div class="col-md-4 ">
             {{#each burgers}}
-                {{#unless eaten}}
-                    {{> burgers/burger-block eaten=true}}
-                {{/unless}}
+                {{#if devoured}}
+                    {{> burgers/burger-block devoured=true}}
+                {{/if}}
             {{/each}}
 
         </div>

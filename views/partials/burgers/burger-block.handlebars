@@ -1,13 +1,18 @@
 <div class="card burger">
     <div class="row">
         <div class="col-md-4">
-            <img class="d-block w-100 rounded" src="/assets/img/full1.png" alt="">
+            <img class="d-block w-100 rounded"
+                 src = {{#if devoured}}"/assets/img/eaten1.png"{{else}}"/assets/img/full1.png"{{/if}}
+                 alt="Burger Image">
         </div>
         <div class="col-md-8">
             <div class="card-block">
-                <p>{{name}}</p>
-                <a href="#" class="btn btn-outline-secondary btn-sm float-right" data-id="{{id}}">
-                    {{#if eaten}}Finish Burger!{{else}}Eat Burger!{{/if}}</a>
+                <p>{{burger_name}}</p>
+                <a href="#" class =
+                {{#if devoured}} "btn btn-outline-secondary btn-sm float-right remove-devoured"
+                    {{else}}"btn btn-outline-secondary btn-sm float-right change-devoured"{{/if}}
+                   data-id="{{id}}">
+                    {{#if devoured}}Finish Burger!{{else}}Eat Burger!{{/if}}</a>
             </div>
         </div>
     </div>

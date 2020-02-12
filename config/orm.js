@@ -45,19 +45,19 @@ var orm = {
         });
     },
 
-    insertOne: function (table, cols, vals, cb) {
+    insertOne: function (table, columns, values, cb) {
         var queryString = "INSERT INTO " + table;
 
         queryString += " (";
-        queryString += cols.toString();
+        queryString += columns.toString();
         queryString += ") ";
         queryString += "VALUES (";
-        queryString += printQuestionMarks(vals.length);
+        queryString += printQuestionMarks(values.length);
         queryString += ") ";
 
         console.log(queryString);
 
-        connection.query(queryString, vals, function (err, result) {
+        connection.query(queryString, values, function (err, result) {
             if (err) {
                 throw err;
             }
@@ -75,6 +75,19 @@ var orm = {
 
         console.log(queryString);
         connection.query(queryString, function (err, result) {
+            if (err) {
+                throw err;
+            }
+
+            cb(result);
+        });
+    },
+    deleteOne: function(table, condition, cb) {
+        var queryString = "DELETE FROM " + table;
+        queryString += " WHERE ";
+        queryString += condition;
+
+        connection.query(queryString, function(err, result) {
             if (err) {
                 throw err;
             }
